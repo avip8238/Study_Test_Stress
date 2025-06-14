@@ -68,7 +68,14 @@ Vou tentar explicar os principais fatores que podem estar influenciando essas di
 #### Se você quiser reduzir o uso de memória em Java, pode tentar ajustar a tamanho do heap da JVM ou usar configurações de GC diferentes. No Go, o consumo de memória será muito mais eficiente por padrão, mas no Python, você pode tentar forçar o GC em momentos específicos para evitar picos imprevisíveis de memória.
 
 ### Imagens dos Testes:
+#### Teste com Pytohn
 ![Teste com Python](images/testWithPython.png)
+
+#### Teste com Go
+![Teste com Go](images/testWithGo.png)
+
+#### Teste com Java
+![Teste com Java](images/testWithJava.png)
 
 ## Como testar?
 - #### Requisitos:
