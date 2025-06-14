@@ -1,6 +1,11 @@
 
 # Estudo sobre processamento, Threds, paralelismo, concorrência.
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
+![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white) 
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+
+
 ### Este estudo nâo significa que é veridico! Estou realizando este estudo por conta própria, buscando entender como de fato é realizado a melhoria de performance, além disso estou buscando compreensão mais sólida com o intuito de construir softwares mais performáticos, flexiveis e de alto desempenho.
 ### Construido com as linguagens de programação nas quais tive interesse,(Python, Go, Java). Isto não significa que são as melhores do mercado!
 
@@ -61,3 +66,33 @@ Vou tentar explicar os principais fatores que podem estar influenciando essas di
   - O Java consome mais memória devido ao overhead da JVM e ao gerenciamento de memória mais pesado, com coleta de lixo mais agressiva.
 
 #### Se você quiser reduzir o uso de memória em Java, pode tentar ajustar a tamanho do heap da JVM ou usar configurações de GC diferentes. No Go, o consumo de memória será muito mais eficiente por padrão, mas no Python, você pode tentar forçar o GC em momentos específicos para evitar picos imprevisíveis de memória.
+
+## Como testar?
+- #### Requisitos:
+    - Btop
+    - Python
+    - Go
+    - Java
+- #### Instalar Btop
+          apt install btop
+  
+- #### Roda Btop
+          btop
+  
+- #### Rodar com Python
+          python3 teste_threds.py
+    
+- #### Rodar com Go
+          go run teste_threds.go
+    
+- #### Rodar com Java
+          java teste_threds.java
+  
+
+### Contribuições
+
+Se você deseja contribuir para este projeto, fique à vontade para criar pull requests ou relatar issues. Melhorias como persistência de dados, maior segurança, e otimizações de desempenho são sempre bem-vindas.
+
+## Autores
+- [@Rodrigo_Kelven](https://github.com/Rodrigo-Kelven)
+
