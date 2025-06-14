@@ -9,6 +9,13 @@
 ### Este estudo nâo significa que é veridico! Estou realizando este estudo por conta própria, buscando entender como de fato é realizado a melhoria de performance, além disso estou buscando compreensão mais sólida com o intuito de construir softwares mais performáticos, flexiveis e de alto desempenho.
 ### Construido com as linguagens de programação nas quais tive interesse,(Python, Go, Java). Isto não significa que são as melhores do mercado!
 
+### Tópicos que vale a pena buscar entender como funciona:
+- Paralelismo e Concorrência
+- Sincrono e Assincrono
+- Threds e processamento
+- Núcleo, cpu, Core
+
+
 O comportamento de consumo de memória e CPU que foi observado entre Java, Go, e Python é um reflexo das diferenças intrínsecas nas linguagens, seus modelos de execução e como as bibliotecas de tempo de execução e garbage collection (GC) afetam o desempenho e o uso de recursos.
 
 Vou tentar explicar os principais fatores que podem estar influenciando essas diferenças de consumo de memória e CPU nos testes.
